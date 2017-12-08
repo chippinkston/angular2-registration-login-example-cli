@@ -1,0 +1,184 @@
+swagger: "2.0"
+#servers:
+#  - url: '{scheme}://local.foo.info/api'
+#    variables:
+#      scheme:
+#        description: 'The local API'
+#        enum:
+#          - 'https'
+#          - 'http'
+#        default: 'https'
+info:
+  description: Basic example of putting together an OpenAPI spec.
+  version: "1"
+  title: "Demo OpenAPI Spec"
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+  - name: users
+    description: Interfaces for Users
+  - name: orders
+    description: Interfaces for Users Orders
+  - name: widgets
+    description: Interfaces for Widgets
+paths:
+  /{version}/users:
+    post:
+      tags:
+        - users
+      operationId: add-new-user
+      summary: Add a new User
+      parameters:
+        - name: user
+          in: body
+          required: true
+          description: New User Data
+          schema:
+            $ref: '#/definitions/user'
+      responses:
+        '204':
+          description: User created.
+        '400':
+          description: Invalid data.
+        '500':
+          description: Server Error.
+    get:
+      tags:
+        - users
+      operationId: list-all-users
+      summary: List of all Users
+      parameters:
+        - name: version
+          in: path
+          description: Version of the API.
+          required: true
+          type: string
+          default: "v1"
+      responses:
+        '200':
+          description: Returns a JSON Array of User Objects
+          schema:
+            $ref: "#/definitions/userList"
+  /{version}/users/{userID}:
+    get:
+      tags:
+        - users
+      operationId: get-specific-user
+      summary: Get a Specific user by ID
+      parameters:
+        - name: version
+          in: path
+          description: Version of the API.
+          required: true
+          type: string
+          default: v1
+        - name: userID
+          in: path
+          description: User Specific ID
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Returns a User Object
+          schema:
+            $ref: "#/definitions/user"
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: User not found
+definitions:
+  user:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: User ID
+      username:
+        type: string
+        description: User Name
+      password:
+        type: string
+        description: User Password
+      apikey:
+        type: string
+        format: uuid
+        description: A user specific API Key
+      isadmin:
+        type: boolean
+        description: Is the user an Admin
+  userList:
+    type: object
+    properties:
+      total:
+        type: integer
+      users:
+        type: array
+        items:
+          $ref: "#/definitions/user"
+        description: Array of Widgets
+  widget:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Widget ID
+      name:
+        type: string
+        description: Widget Name
+      price:
+        type: number
+        format: double
+        description: Widget Price
+  widgetList:
+    type: object
+    properties:
+      total:
+        type: integer
+      widgets:
+        type: array
+        items:
+          $ref: "#/definitions/widget"
+  order:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Order ID
+      user:
+        type: integer
+      widgets:
+        type: array
+        items:
+          type: object
+          properties:
+            widgetid:
+              type: integer
+              description: The Widget ID for this order item
+            quantity:
+              type: integer
+              minimum: 1
+              description: How many of the widget are in the order
+        description: Array of Widgets
+#  securitySchemes:
+#    ApiKeyAuth:
+#      type: apiKey
+#      in: header
+#      name: X-API-Key
+#    OAuth2:
+#      type: oauth2
+#      flows:
+#        implicit:
+#          authorizationUrl: https://api.example.com/oauth2/authorize
+#          scopes:
+#            view_users: view users
+#            admin_users: admin all users
+#            view_widgets: view widgets
+#            admin_widgets: admin widgets
+#            view_orders: view orders
+#            admin_orders: admin orders
+#    cookieAuth:
+#      type: apiKey
+#      in: cookie
+#      name: JSESSIONID
