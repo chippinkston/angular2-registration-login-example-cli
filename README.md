@@ -1,5 +1,5 @@
 # Testing Frontend
-
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 ## API Frontends
 
