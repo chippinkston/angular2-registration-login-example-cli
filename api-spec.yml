@@ -1,15 +1,6 @@
 swagger: "2.0"
-#servers:
-#  - url: '{scheme}://local.foo.info/api'
-#    variables:
-#      scheme:
-#        description: 'The local API'
-#        enum:
-#          - 'https'
-#          - 'http'
-#        default: 'https'
 info:
-  description: Basic example of putting together an OpenAPI spec.
+  description: Basic example of putting together an OpenAPI spec (Swagger v2 format).
   version: "1"
   title: "Demo OpenAPI Spec"
 consumes:
@@ -23,8 +14,13 @@ tags:
     description: Interfaces for Users Orders
   - name: widgets
     description: Interfaces for Widgets
+host: api.localhost
+basePath: /v1
+schemes:
+  - https
+  - http
 paths:
-  /{version}/users:
+  /users:
     post:
       tags:
         - users
@@ -49,31 +45,18 @@ paths:
         - users
       operationId: list-all-users
       summary: List of all Users
-      parameters:
-        - name: version
-          in: path
-          description: Version of the API.
-          required: true
-          type: string
-          default: "v1"
       responses:
         '200':
           description: Returns a JSON Array of User Objects
           schema:
             $ref: "#/definitions/userList"
-  /{version}/users/{userID}:
+  /users/{userID}:
     get:
       tags:
         - users
       operationId: get-specific-user
       summary: Get a Specific user by ID
       parameters:
-        - name: version
-          in: path
-          description: Version of the API.
-          required: true
-          type: string
-          default: v1
         - name: userID
           in: path
           description: User Specific ID
@@ -148,6 +131,7 @@ definitions:
         description: Order ID
       user:
         type: integer
+        description: User ID
       widgets:
         type: array
         items:
@@ -161,24 +145,20 @@ definitions:
               minimum: 1
               description: How many of the widget are in the order
         description: Array of Widgets
-#  securitySchemes:
-#    ApiKeyAuth:
-#      type: apiKey
-#      in: header
-#      name: X-API-Key
-#    OAuth2:
-#      type: oauth2
-#      flows:
-#        implicit:
-#          authorizationUrl: https://api.example.com/oauth2/authorize
-#          scopes:
-#            view_users: view users
-#            admin_users: admin all users
-#            view_widgets: view widgets
-#            admin_widgets: admin widgets
-#            view_orders: view orders
-#            admin_orders: admin orders
-#    cookieAuth:
-#      type: apiKey
-#      in: cookie
-#      name: JSESSIONID
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: X-API-Key
+  OAuth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://example.com/oauth/authorize
+    tokenUrl: https://example.com/oauth/token
+    scopes:
+      view_users: view users
+      admin_users: admin all users
+      view_widgets: view widgets
+      admin_widgets: admin widgets
+      view_orders: view orders
+      admin_orders: admin orders
