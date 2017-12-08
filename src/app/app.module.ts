@@ -19,6 +19,8 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AdminComponent } from './admin/index';
 import { CreditsComponent } from './credits/index';
+import { UsersComponent } from './admin/users/index';
+import { WidgetsComponent } from './admin/widgets/index';
 
 @NgModule({
     imports: [
@@ -34,7 +36,9 @@ import { CreditsComponent } from './credits/index';
         LoginComponent,
         RegisterComponent,
         AdminComponent,
-        CreditsComponent
+        CreditsComponent,
+        UsersComponent,
+        WidgetsComponent
     ],
     providers: [
         AuthGuard,
