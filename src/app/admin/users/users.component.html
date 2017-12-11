@@ -8,7 +8,8 @@
 		<th>username</th>
 		<th>password</th>
 		<th>Admin</th>
-		<th>View / Edit</th>
+		<th>View</th>
+		<th>Edit</th>
 	</tr>
 	</thead>
 	<tr *ngFor="let user of users" [class.success]="!user.isadmin" [class.danger]="user.isadmin">

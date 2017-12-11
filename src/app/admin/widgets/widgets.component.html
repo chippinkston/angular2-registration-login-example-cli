@@ -7,14 +7,16 @@
 		<th>ID</th>
 		<th>Name</th>
 		<th>Price</th>
-		<th>View / Edit</th>
+		<th>View</th>
+		<th>Edit</th>
 	</tr>
 	</thead>
 	<tr *ngFor="let widget of widgets">
 		<td>{{widget.id}}</td>
 		<td>{{widget.name}}</td>
 		<td>{{widget.price | currency}}</td>
-		<td><a href="#"  (click)="onSelect(widget)">view / edit</a></td>
+		<td><a href="#"  (click)="onSelect(widget)">view</a></td>
+		<td><a href="#"  (click)="onSelect(widget)">edit</a></td>
 	</tr>
 </table>
 <div *ngIf="selectedWidget">
