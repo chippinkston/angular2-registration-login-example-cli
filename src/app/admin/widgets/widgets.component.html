@@ -1,3 +1,37 @@
-<p>
-  widgets works!
-</p>
+<h2>
+	Widgets
+</h2>
+<table class="table table-bordered">
+	<thead>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Price</th>
+		<th>View / Edit</th>
+	</tr>
+	</thead>
+	<tr *ngFor="let widget of widgets">
+		<td>{{widget.id}}</td>
+		<td>{{widget.name}}</td>
+		<td>{{widget.price | currency}}</td>
+		<td><a href="#"  (click)="onSelect(widget)">view / edit</a></td>
+	</tr>
+</table>
+<div *ngIf="selectedWidget">
+
+	<h2>{{ selectedWidget.name }} Details</h2>
+	<div><span>id: </span>{{selectedWidget.id}}</div>
+	<div>
+		<form>
+			<div class="form-group">
+				<label for="wname">name</label>
+				<input name="wname" [(ngModel)]="selectedWidget.name" placeholder="name">
+			</div>
+			<div class="form-group">
+				<label for="wprice">price</label>
+				<input name="wprice" [(ngModel)]="selectedWidget.price" placeholder="price">
+			</div>
+		</form>
+	</div>
+
+</div>

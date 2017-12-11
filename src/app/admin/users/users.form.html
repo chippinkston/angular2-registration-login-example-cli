@@ -1,0 +1,20 @@
+<div >
+	<h2>{{ selectedUser.username }} Details</h2>
+	<div><span>id: </span>{{selectedUser.id}}</div>
+	<div>
+		<form>
+			<div class="form-group">
+				<label for="uname">username</label>
+				<input name="uname" [(ngModel)]="selectedUser.username" placeholder="username">
+			</div>
+			<div class="form-group">
+				<label for="upass">password</label>
+				<input name="upass" [(ngModel)]="selectedUser.password" placeholder="password">
+			</div>
+			<div class="form-group">
+				<label for="uapi">apikey</label>
+				<input name="uapi" [(ngModel)]="selectedUser.apikey" placeholder="API Key">
+			</div>
+		</form>
+	</div>
+</div>

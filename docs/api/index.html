@@ -821,11 +821,23 @@ margin-bottom: 20px;
                     <li data-group="Users" data-name="addNewUser" class="">
                       <a href="#api-Users-addNewUser">addNewUser</a>
                     </li>
+                    <li data-group="Users" data-name="deleteAllUsers" class="">
+                      <a href="#api-Users-deleteAllUsers">deleteAllUsers</a>
+                    </li>
+                    <li data-group="Users" data-name="deleteSpecificUser" class="">
+                      <a href="#api-Users-deleteSpecificUser">deleteSpecificUser</a>
+                    </li>
                     <li data-group="Users" data-name="getSpecificUser" class="">
                       <a href="#api-Users-getSpecificUser">getSpecificUser</a>
                     </li>
                     <li data-group="Users" data-name="listAllUsers" class="">
                       <a href="#api-Users-listAllUsers">listAllUsers</a>
+                    </li>
+                    <li data-group="Users" data-name="putAllUsers" class="">
+                      <a href="#api-Users-putAllUsers">putAllUsers</a>
+                    </li>
+                    <li data-group="Users" data-name="putSpecificUser" class="">
+                      <a href="#api-Users-putSpecificUser">putSpecificUser</a>
                     </li>
           </ul>
         </nav>
@@ -1114,6 +1126,462 @@ $(document).ready(function() {
                             </div>
 
                             <h3> Status: 500 - Server Error. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Users-deleteAllUsers">
+                      <article id="api-Users-deleteAllUsers-0" data-group="User" data-name="deleteAllUsers" data-version="0">
+                        <div class="pull-left">
+                          <h1>deleteAllUsers</h1>
+                          <p>Delete all Users</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/users</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Users-deleteAllUsers-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Users-deleteAllUsers-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Users-deleteAllUsers-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Users-deleteAllUsers-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Users-deleteAllUsers-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Users-deleteAllUsers-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Users-deleteAllUsers-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Users-deleteAllUsers-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Users-deleteAllUsers-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Users-deleteAllUsers-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Users-deleteAllUsers-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Users-deleteAllUsers-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "https://api.localhost/v1/users"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Users-deleteAllUsers-0-java">
+                            <pre class="prettyprint"><code class="language-java">import .*;
+import .auth.*;
+import .model.*;
+import .api.UsersApi;
+
+import java.io.File;
+import java.util.*;
+
+public class UsersApiExample {
+
+    public static void main(String[] args) {
+        
+        UsersApi apiInstance = new UsersApi();
+        try {
+            apiInstance.deleteAllUsers();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#deleteAllUsers");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Users-deleteAllUsers-0-android">
+                            <pre class="prettyprint"><code class="language-java">import .api.UsersApi;
+
+public class UsersApiExample {
+
+    public static void main(String[] args) {
+        UsersApi apiInstance = new UsersApi();
+        try {
+            apiInstance.deleteAllUsers();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#deleteAllUsers");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Users-deleteAllUsers-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Users-deleteAllUsers-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+UsersApi *apiInstance = [[UsersApi alloc] init];
+
+// Delete all Users
+[apiInstance deleteAllUsersWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-deleteAllUsers-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var DemoOpenApiSpec = require('demo_open_api_spec');
+
+var api = new DemoOpenApiSpec.UsersApi()
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.deleteAllUsers(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Users-deleteAllUsers-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Users-deleteAllUsers-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using .Api;
+using .Client;
+using .Model;
+
+namespace Example
+{
+    public class deleteAllUsersExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new UsersApi();
+
+            try
+            {
+                // Delete all Users
+                apiInstance.deleteAllUsers();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UsersApi.deleteAllUsers: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-deleteAllUsers-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\UsersApi();
+
+try {
+    $api_instance->deleteAllUsers();
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->deleteAllUsers: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-deleteAllUsers-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use ::Configuration;
+use ::UsersApi;
+
+my $api_instance = ::UsersApi->new();
+
+eval { 
+    $api_instance->deleteAllUsers();
+};
+if ($@) {
+    warn "Exception when calling UsersApi->deleteAllUsers: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-deleteAllUsers-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import 
+from .rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = .UsersApi()
+
+try: 
+    # Delete all Users
+    api_instance.delete_all_users()
+except ApiException as e:
+    print("Exception when calling UsersApi->deleteAllUsers: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 400 - Feature not enabled </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Users-deleteSpecificUser">
+                      <article id="api-Users-deleteSpecificUser-0" data-group="User" data-name="deleteSpecificUser" data-version="0">
+                        <div class="pull-left">
+                          <h1>deleteSpecificUser</h1>
+                          <p>Delete a Specific user by ID</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/users/{userID}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Users-deleteSpecificUser-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Users-deleteSpecificUser-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Users-deleteSpecificUser-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Users-deleteSpecificUser-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Users-deleteSpecificUser-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Users-deleteSpecificUser-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Users-deleteSpecificUser-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Users-deleteSpecificUser-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Users-deleteSpecificUser-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Users-deleteSpecificUser-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Users-deleteSpecificUser-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Users-deleteSpecificUser-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "https://api.localhost/v1/users/{userID}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Users-deleteSpecificUser-0-java">
+                            <pre class="prettyprint"><code class="language-java">import .*;
+import .auth.*;
+import .model.*;
+import .api.UsersApi;
+
+import java.io.File;
+import java.util.*;
+
+public class UsersApiExample {
+
+    public static void main(String[] args) {
+        
+        UsersApi apiInstance = new UsersApi();
+        Integer userID = 56; // Integer | User Specific ID
+        try {
+            apiInstance.deleteSpecificUser(userID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#deleteSpecificUser");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Users-deleteSpecificUser-0-android">
+                            <pre class="prettyprint"><code class="language-java">import .api.UsersApi;
+
+public class UsersApiExample {
+
+    public static void main(String[] args) {
+        UsersApi apiInstance = new UsersApi();
+        Integer userID = 56; // Integer | User Specific ID
+        try {
+            apiInstance.deleteSpecificUser(userID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#deleteSpecificUser");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Users-deleteSpecificUser-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Users-deleteSpecificUser-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *userID = 56; // User Specific ID
+
+UsersApi *apiInstance = [[UsersApi alloc] init];
+
+// Delete a Specific user by ID
+[apiInstance deleteSpecificUserWith:userID
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-deleteSpecificUser-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var DemoOpenApiSpec = require('demo_open_api_spec');
+
+var api = new DemoOpenApiSpec.UsersApi()
+
+var userID = 56; // {Integer} User Specific ID
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.deleteSpecificUser(userID, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Users-deleteSpecificUser-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Users-deleteSpecificUser-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using .Api;
+using .Client;
+using .Model;
+
+namespace Example
+{
+    public class deleteSpecificUserExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new UsersApi();
+            var userID = 56;  // Integer | User Specific ID
+
+            try
+            {
+                // Delete a Specific user by ID
+                apiInstance.deleteSpecificUser(userID);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UsersApi.deleteSpecificUser: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-deleteSpecificUser-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\UsersApi();
+$userID = 56; // Integer | User Specific ID
+
+try {
+    $api_instance->deleteSpecificUser($userID);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->deleteSpecificUser: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-deleteSpecificUser-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use ::Configuration;
+use ::UsersApi;
+
+my $api_instance = ::UsersApi->new();
+my $userID = 56; # Integer | User Specific ID
+
+eval { 
+    $api_instance->deleteSpecificUser(userID => $userID);
+};
+if ($@) {
+    warn "Exception when calling UsersApi->deleteSpecificUser: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-deleteSpecificUser-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import 
+from .rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = .UsersApi()
+userID = 56 # Integer | User Specific ID
+
+try: 
+    # Delete a Specific user by ID
+    api_instance.delete_specific_user(userID)
+except ApiException as e:
+    print("Exception when calling UsersApi->deleteSpecificUser: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">userID*</td>
+<td>
+
+
+    <div id="d2e199_deleteSpecificUser_userID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description">
+                        User Specific ID
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 204 - User Deleted. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
@@ -1684,6 +2152,530 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-Users-putAllUsers">
+                      <article id="api-Users-putAllUsers-0" data-group="User" data-name="putAllUsers" data-version="0">
+                        <div class="pull-left">
+                          <h1>putAllUsers</h1>
+                          <p>Modify all Users</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/users</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Users-putAllUsers-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Users-putAllUsers-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Users-putAllUsers-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Users-putAllUsers-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Users-putAllUsers-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Users-putAllUsers-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Users-putAllUsers-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Users-putAllUsers-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Users-putAllUsers-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Users-putAllUsers-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Users-putAllUsers-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Users-putAllUsers-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT "https://api.localhost/v1/users"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Users-putAllUsers-0-java">
+                            <pre class="prettyprint"><code class="language-java">import .*;
+import .auth.*;
+import .model.*;
+import .api.UsersApi;
+
+import java.io.File;
+import java.util.*;
+
+public class UsersApiExample {
+
+    public static void main(String[] args) {
+        
+        UsersApi apiInstance = new UsersApi();
+        try {
+            apiInstance.putAllUsers();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#putAllUsers");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Users-putAllUsers-0-android">
+                            <pre class="prettyprint"><code class="language-java">import .api.UsersApi;
+
+public class UsersApiExample {
+
+    public static void main(String[] args) {
+        UsersApi apiInstance = new UsersApi();
+        try {
+            apiInstance.putAllUsers();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#putAllUsers");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Users-putAllUsers-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Users-putAllUsers-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+UsersApi *apiInstance = [[UsersApi alloc] init];
+
+// Modify all Users
+[apiInstance putAllUsersWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-putAllUsers-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var DemoOpenApiSpec = require('demo_open_api_spec');
+
+var api = new DemoOpenApiSpec.UsersApi()
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.putAllUsers(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Users-putAllUsers-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Users-putAllUsers-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using .Api;
+using .Client;
+using .Model;
+
+namespace Example
+{
+    public class putAllUsersExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new UsersApi();
+
+            try
+            {
+                // Modify all Users
+                apiInstance.putAllUsers();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UsersApi.putAllUsers: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-putAllUsers-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\UsersApi();
+
+try {
+    $api_instance->putAllUsers();
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->putAllUsers: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-putAllUsers-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use ::Configuration;
+use ::UsersApi;
+
+my $api_instance = ::UsersApi->new();
+
+eval { 
+    $api_instance->putAllUsers();
+};
+if ($@) {
+    warn "Exception when calling UsersApi->putAllUsers: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-putAllUsers-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import 
+from .rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = .UsersApi()
+
+try: 
+    # Modify all Users
+    api_instance.put_all_users()
+except ApiException as e:
+    print("Exception when calling UsersApi->putAllUsers: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 400 - Feature not enabled </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Users-putSpecificUser">
+                      <article id="api-Users-putSpecificUser-0" data-group="User" data-name="putSpecificUser" data-version="0">
+                        <div class="pull-left">
+                          <h1>putSpecificUser</h1>
+                          <p>Update a Specific user by ID</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/users/{userID}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Users-putSpecificUser-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Users-putSpecificUser-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Users-putSpecificUser-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Users-putSpecificUser-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Users-putSpecificUser-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Users-putSpecificUser-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Users-putSpecificUser-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Users-putSpecificUser-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Users-putSpecificUser-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Users-putSpecificUser-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Users-putSpecificUser-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Users-putSpecificUser-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT "https://api.localhost/v1/users/{userID}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Users-putSpecificUser-0-java">
+                            <pre class="prettyprint"><code class="language-java">import .*;
+import .auth.*;
+import .model.*;
+import .api.UsersApi;
+
+import java.io.File;
+import java.util.*;
+
+public class UsersApiExample {
+
+    public static void main(String[] args) {
+        
+        UsersApi apiInstance = new UsersApi();
+        Integer userID = 56; // Integer | User Specific ID
+        User user = ; // User | New User Data
+        try {
+            apiInstance.putSpecificUser(userID, user);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#putSpecificUser");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Users-putSpecificUser-0-android">
+                            <pre class="prettyprint"><code class="language-java">import .api.UsersApi;
+
+public class UsersApiExample {
+
+    public static void main(String[] args) {
+        UsersApi apiInstance = new UsersApi();
+        Integer userID = 56; // Integer | User Specific ID
+        User user = ; // User | New User Data
+        try {
+            apiInstance.putSpecificUser(userID, user);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#putSpecificUser");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Users-putSpecificUser-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Users-putSpecificUser-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *userID = 56; // User Specific ID
+User *user = ; // New User Data
+
+UsersApi *apiInstance = [[UsersApi alloc] init];
+
+// Update a Specific user by ID
+[apiInstance putSpecificUserWith:userID
+    user:user
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-putSpecificUser-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var DemoOpenApiSpec = require('demo_open_api_spec');
+
+var api = new DemoOpenApiSpec.UsersApi()
+
+var userID = 56; // {Integer} User Specific ID
+
+var user = ; // {User} New User Data
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.putSpecificUser(userID, user, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Users-putSpecificUser-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Users-putSpecificUser-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using .Api;
+using .Client;
+using .Model;
+
+namespace Example
+{
+    public class putSpecificUserExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new UsersApi();
+            var userID = 56;  // Integer | User Specific ID
+            var user = new User(); // User | New User Data
+
+            try
+            {
+                // Update a Specific user by ID
+                apiInstance.putSpecificUser(userID, user);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling UsersApi.putSpecificUser: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-putSpecificUser-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\UsersApi();
+$userID = 56; // Integer | User Specific ID
+$user = ; // User | New User Data
+
+try {
+    $api_instance->putSpecificUser($userID, $user);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->putSpecificUser: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-putSpecificUser-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use ::Configuration;
+use ::UsersApi;
+
+my $api_instance = ::UsersApi->new();
+my $userID = 56; # Integer | User Specific ID
+my $user = ::Object::User->new(); # User | New User Data
+
+eval { 
+    $api_instance->putSpecificUser(userID => $userID, user => $user);
+};
+if ($@) {
+    warn "Exception when calling UsersApi->putSpecificUser: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Users-putSpecificUser-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import 
+from .rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = .UsersApi()
+userID = 56 # Integer | User Specific ID
+user =  # User | New User Data
+
+try: 
+    # Update a Specific user by ID
+    api_instance.put_specific_user(userID, user)
+except ApiException as e:
+    print("Exception when calling UsersApi->putSpecificUser: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">userID*</td>
+<td>
+
+
+    <div id="d2e199_putSpecificUser_userID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description">
+                        User Specific ID
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">user <span style="color:red;">*</span></td>
+<td>
+
+
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "in" : "body",
+  "name" : "user",
+  "description" : "New User Data",
+  "required" : true,
+  "schema" : {
+    "$ref" : "#/definitions/user"
+  }
+};
+  var schema = schemaWrapper.schema;
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_putSpecificUser_user');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_putSpecificUser_user"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 204 - User Modified. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 400 - Invalid data. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Server Error. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                   </section>
           </div>
           <div id="footer">
@@ -1698,7 +2690,7 @@ except ApiException as e:
           </div>
           <div id="generator">
             <div class="content">
-              Generated 2017-12-07T22:14:24.674-05:00
+              Generated 2017-12-11T10:49:59.304-05:00
             </div>
           </div>
       </div>

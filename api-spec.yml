@@ -50,6 +50,22 @@ paths:
           description: Returns a JSON Array of User Objects
           schema:
             $ref: "#/definitions/userList"
+    put:
+      tags:
+        - users
+      operationId: put-all-users
+      summary: Modify all Users
+      responses:
+        '400':
+          description: Feature not enabled
+    delete:
+      tags:
+        - users
+      operationId: delete-all-users
+      summary: Delete all Users
+      responses:
+        '400':
+          description: Feature not enabled
   /users/{userID}:
     get:
       tags:
@@ -71,6 +87,44 @@ paths:
           description: Invalid ID supplied
         '404':
           description: User not found
+    put:
+      tags:
+        - users
+      operationId: put-specific-user
+      summary: Update a Specific user by ID
+      parameters:
+        - name: userID
+          in: path
+          description: User Specific ID
+          required: true
+          type: integer
+        - name: user
+          in: body
+          required: true
+          description: New User Data
+          schema:
+            $ref: '#/definitions/user'
+      responses:
+        '204':
+          description: User Modified.
+        '400':
+          description: Invalid data.
+        '500':
+          description: Server Error.
+    delete:
+      tags:
+        - users
+      operationId: delete-specific-user
+      summary: Delete a Specific user by ID
+      parameters:
+        - name: userID
+          in: path
+          description: User Specific ID
+          required: true
+          type: integer
+      responses:
+        '204':
+          description: User Deleted.
 definitions:
   user:
     type: object

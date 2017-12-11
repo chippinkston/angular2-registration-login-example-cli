@@ -3,14 +3,22 @@
 
 ## API Frontends
 
-| Resource    | POST (create)     | GET (read)   | PUT (update)      | DELETE  (delete)  |
-| ------------|-------------------|--------------|-------------------|-------------------|
-| /users      | New User          | List Users   | Bad Request (400) | Bad Request (400) | 
-| /users/1    | Bad Request (400) | Show Alice   | Update Alice      | Delete Alice      |
-| /widgets    | New Widget        | List Widgets | Bad Request (400) | Bad Request (400) | 
-| /widgets/1  | Bad Request (400) | Show Foo     | Update Foo        | Delete Foo        |
-| /orders     | New Order         | List Orders  | Bad Request (400) | Bad Request (400) | 
-| /orders/1   | Bad Request (400) | Show Order   | Update Order      | Delete Order      |
+### CRUD
+| Resource          | POST (create)     | GET (read)   | PUT (update)      | DELETE  (delete)  |
+| ------------------|-------------------|--------------|-------------------|-------------------|
+| /orders           | New Order         | List Orders  | Bad Request (400) | Bad Request (400) | 
+| /orders/1         | Bad Request (400) | Show Order   | Update Order      | Delete Order      |
+| /admin/users      | New User          | List Users   | Bad Request (400) | Bad Request (400) | 
+| /admin/users/1    | Bad Request (400) | Show Alice   | Update Alice      | Delete Alice      |
+| /admin/widgets    | New Widget        | List Widgets | Bad Request (400) | Bad Request (400) | 
+| /admin/widgets/1  | Bad Request (400) | Show Foo     | Update Foo        | Delete Foo        |
+
+### Actions
+| Resource          | POST (create)     | GET (read)        | PUT (update)      | DELETE  (delete)  |
+| ------------------|-------------------|-------------------|-------------------|-------------------|
+| /authenticate     | Log In            | Bad Request (400) | Bad Request (400) | Bad Request (400) | 
+| /logout           | Bad Request (400) | Log Out           | Bad Request (400) | Bad Request (400) | 
+
 
 
 # Original README

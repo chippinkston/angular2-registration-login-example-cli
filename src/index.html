@@ -34,17 +34,19 @@
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#signin">Sign In</a></li>
+						<li><a routerLink="/login" routerLinkActive="active">Sign In</a></li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+							<a href="/admin" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Customers</a></li>
-								<li><a href="#">Widgets</a></li>
+								<li><a routerLink="/admin/users" routerLinkActive="active">Customers</a></li>
+
+								<!--<li><a href="/admin/users">Customers</a></li>-->
+								<li><a href="/admin/widgets">Widgets</a></li>
 							</ul>
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a [routerLink]="['/credits']">credits</a></li>
+						<li><a href="/credits">credits</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
@@ -53,6 +55,7 @@
 			<app-messages></app-messages>
 			<app></app>
 			<app-root></app-root>
+			<router-outlet></router-outlet>
 		</div>
 		<footer class="footer">
 			<div class="container">
