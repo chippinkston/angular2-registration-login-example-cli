@@ -55,7 +55,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
             }
 
             // get user by id
-            if (connection.request.url.match(/\/api\/users\/\d+$/) && connection.request.method === RequestMethod.Get) {
+            if (connection.request.url.match(/\/api\/v1\/users\/\d+$/) && connection.request.method === RequestMethod.Get) {
                 // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
                 if (connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     // find user by id in users array
@@ -97,7 +97,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
             }
 
             // delete user
-            if (connection.request.url.match(/\/api\/users\/\d+$/) && connection.request.method === RequestMethod.Delete) {
+            if (connection.request.url.match(/\/api\/v1\/users\/\d+$/) && connection.request.method === RequestMethod.Delete) {
                 // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
                 if (connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     // find user by id in users array

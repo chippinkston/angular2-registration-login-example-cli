@@ -1,37 +1,36 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import { ActivatedRoute, Params } from "@angular/router";
-import { User } from "../../_models/user";
-import { UserService} from "../../_services/user.service";
+import {Component, OnInit, Input} from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { Location } from '@angular/common';
+
+import { User } from "../../_models/";
+import { UserService} from "../../_services/";
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user.details.html'
 })
-export class UserDetailComponent implements OnInit, OnDestroy {
+export class UserDetailComponent implements OnInit {
+  @Input() user: User;
 
-  id: number;
-  user: User;
+  constructor(private route: ActivatedRoute,private userService: UserService, private location: Location) { }
 
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  ngOnInit(): void {
+    this.getUser();
+  }
 
-  getSelectedUser(): void {
-    console.log('~~~ call to get specific user: ' + this.id + '~~~');
-    this.userService.getSpecificUser(this.id)
+  getUser(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userService.getUser(id)
       .subscribe(user => this.user = user);
-    console.log('~~~ user returned ~~~');
   }
 
-  ngOnInit() {
-    this.sub = this.route.queryParamMap.subscribe((params: Params) => {
-      this.id = +params.get('id');
-      console.log(params);
-    });
-    console.log('~~~ UserID '+ this.id + ' ~~~')
-    this.getSelectedUser();
+  goBack(): void {
+    this.location.back();
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+  save(): void {
+    this.userService.updateUser(this.user)
+      .subscribe(() => this.goBack());
   }
 
 }

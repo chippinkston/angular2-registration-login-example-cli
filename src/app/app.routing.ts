@@ -7,16 +7,19 @@ import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { UsersComponent, UserDetailComponent } from "./admin/users/index";
-import { WidgetsComponent } from "./admin/widgets";
+import {WidgetDetailsComponent, WidgetsComponent} from "./admin/widgets";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'admin/users/:id/details', component: UserDetailComponent },
-    { path: 'admin/users/:id/form', component: UserDetailComponent },
+    { path: 'admin/users/delete/:id', component: UserDetailComponent },
+    { path: 'admin/users/form/:id', component: UserDetailComponent },
     { path: 'admin/users/form', component: UserDetailComponent },
     { path: 'admin/users', component: UsersComponent },
+    { path: 'admin/widgets/delete/:id', component: WidgetDetailsComponent },
+    { path: 'admin/widgets/form/:id', component: WidgetDetailsComponent },
+    { path: 'admin/widgets/form', component: WidgetDetailsComponent },
     { path: 'admin/widgets', component: WidgetsComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'credits', component: CreditsComponent },
@@ -25,4 +28,4 @@ const appRoutes: Routes = [
     { path: '**', redirectTo: '' }
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const AppRoutingModule = RouterModule.forRoot(appRoutes);

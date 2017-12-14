@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div *ngIf="user">
+	<h2>User Details</h2>
+	<div><span>id: </span>{{user.id}}</div>
+	<div>
+		<label>username:
+			<input [(ngModel)]="user.username" placeholder="username"/>
+		</label>
+	</div>
+	<div>
+		<label>password:
+			<input [(ngModel)]="user.password" placeholder="password"/>
+		</label>
+	</div>
+	<div>
+		<label>API Key:
+			<input [(ngModel)]="user.apikey" placeholder="API Key"/>
+		</label>
+	</div>
+	<div>
+		<label>Is Admin:
+			<input [(ngModel)]="user.isadmin" (change)="user.isadmin != user.isadmin" type="checkbox">
+		</label>
+	</div>
+	<button (click)="goBack()">go back</button>
+	<button (click)="save()">save</button>
+</div>

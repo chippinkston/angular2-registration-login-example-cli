@@ -1,0 +1,16 @@
+<div *ngIf="widget">
+	<h2>Widget Details</h2>
+	<div><span>id: </span>{{widget.id}}</div>
+	<div>
+		<label>name:
+			<input [(ngModel)]="widget.name" placeholder="name"/>
+		</label>
+	</div>
+	<div>
+		<label>price:
+			<input [(ngModel)]="widget.price" placeholder="price"/>
+		</label>
+	</div>
+	<button (click)="goBack()">go back</button>
+	<button (click)="save()">save</button>
+</div>

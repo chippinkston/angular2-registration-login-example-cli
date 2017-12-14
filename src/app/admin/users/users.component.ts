@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
 
   getAll(): void {
     console.log('~~~ call to load users ~~~');
-    this.userService.getAll()
+    this.userService.getUsers()
       .subscribe(users => this.users = users);
     console.log('~~~ users returned ~~~');
   }

@@ -4,21 +4,23 @@
 <table class="table table-bordered">
 	<thead>
 	<tr>
-		<th>id</th>
-		<th>username</th>
-		<th>password</th>
+		<th>ID</th>
+		<th>Username</th>
+		<th>Password</th>
+		<th>API Key</th>
 		<th>Admin</th>
-		<th>View</th>
 		<th>Edit</th>
+		<th>Delete</th>
 	</tr>
 	</thead>
 	<tr *ngFor="let user of users" [class.success]="!user.isadmin" [class.danger]="user.isadmin">
 		<td>{{user.id}}</td>
 		<td>{{user.username}}</td>
 		<td>{{user.password}}</td>
+		<td>{{user.apikey}}</td>
 		<td>{{user.isadmin}}</td>
-		<td><a href="/admin/users/{{user.id}}/details">view</a></td>
-		<td><a href="/admin/users/{{user.id}}/form">edit</a></td>
+		<td><a routerLink="/admin/users/form/{{user.id}}" routerLinkActive="active" class="btn btn-primary">edit</a></td>
+		<td><a routerLink="/admin/users/delete/{{user.id}}" routerLinkActive="active" class="btn btn-danger">delete</a></td>
 	</tr>
 </table>
 

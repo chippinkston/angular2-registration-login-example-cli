@@ -1,5 +1,7 @@
+import { Widget} from "./widget";
+
 export class Order {
   id: number;
   user: number;
-  widgets: widget[] = new Array();
+  widgets: Widget[] = new Array();
 }
