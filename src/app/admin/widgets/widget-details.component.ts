@@ -12,7 +12,7 @@ import { WidgetService} from "../../_services/";
 export class WidgetDetailsComponent implements OnInit {
   @Input() widget: Widget;
 
-  constructor(private route: ActivatedRoute,private widgetService: WidgetService, private location: Location) { }
+  constructor(private route: ActivatedRoute, private widgetService: WidgetService, private location: Location) { }
 
   ngOnInit(): void {
     this.getWidget();

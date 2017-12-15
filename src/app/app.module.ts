@@ -10,8 +10,8 @@ import { AppComponent }  from './app.component';
 import { AppRoutingModule } from './app.routing';
 
 import { AlertComponent } from './_directives/';
-import { AuthGuard } from './_guards/';
-import { AlertService, AuthenticationService, UserService, OrderService, MessageService, WidgetService } from './_services/';
+import { AuthGuard, AdminGuard } from './_guards/';
+import { AlertService, AuthenticationService, UserService, OrderService, MessageService, WidgetService, ValidationService } from './_services/';
 import { HomeComponent } from './home/';
 import { LoginComponent } from './login/';
 import { RegisterComponent } from './register/';
@@ -53,12 +53,14 @@ import { BaseRequestOptions } from '@angular/http';
     ],
     providers: [
         AuthGuard,
+        AdminGuard,
         AlertService,
         AuthenticationService,
         UserService,
         WidgetService,
         OrderService,
         MessageService,
+        ValidationService,
 
         // providers used to create fake backend
         fakeBackendProvider,

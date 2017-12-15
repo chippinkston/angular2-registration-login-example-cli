@@ -22,8 +22,4 @@ export class WidgetsComponent implements OnInit {
     this.getWidgets();
   }
 
-  onSelect(widget: Widget): void {
-    this.selectedWidget = widget;
-  }
-
 }

@@ -1,12 +1,49 @@
-﻿<div class="col-md-6 col-md-offset-3">
-    <h1>Hi {{currentUser.firstName}}!</h1>
-    <p>You're logged in with Angular 2/5 and Angular CLI!!</p>
-    <h3>All registered users:</h3>
-    <ul>
-        <li *ngFor="let user of users">
-            {{user.username}} ({{user.firstName}} {{user.lastName}})
-            - <a (click)="deleteUser(user.id)">Delete</a>
-        </li>
-    </ul>
-    <p><a [routerLink]="['/login']">Logout</a></p>
+﻿<h2>
+	Welcome {{currentUser.username}}!
+	<a [routerLink]="['/login']" class="btn btn-danger pull-right">Logout</a>
+</h2>
+<div class="row">
+	<div class="col-md-6">
+		<h3>Widgets</h3>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Widget</th>
+					<th>Price</th>
+					<th>Add</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let widget of widgets | async">
+					<td>{{widget.name}}</td>
+					<td>{{widget.price | currency}}</td>
+					<td><a (click)="addToOrder(widget.id)" routerLinkActive="active" class="btn btn-success btn-xs">add</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-md-6">
+		<h3>New Order</h3>
+		<table class="table table-bordered" *ngIf="currentOrder !== undefined">
+			<thead>
+				<tr>
+					<th>Widget</th>
+					<th>Quantity</th>
+					<th>Admin</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let orderItem of currentOrder.widgets">
+					<td>{{orderItem.widget.name}}</td>
+					<td>{{orderItem.quantity}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h3>Orders</h3>
+	</div>
 </div>

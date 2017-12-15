@@ -4,3 +4,4 @@ export * from './user.service';
 export * from './order.service';
 export * from './widget.service';
 export * from './message.service';
+export * from './validation.service';
