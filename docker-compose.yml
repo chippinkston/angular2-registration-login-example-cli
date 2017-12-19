@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  frontend:
+    build: frontend
+    ports:
+      - "4200:4200"
+
+  api: # Switch out the build to fit your API fulfilment platform / ports
+    build: api/express
+    ports:
+      - "3000:3000"
+    links:
+      - database
+
+  database: # Switch out the build to fit your Datastorage platform
+    image: mongo
+    ports:
+      - "27017:27017"
+
+
+# Helper Containers - used to seed data
+  seeder:
+    build: database/mongo-seed
+    volumes:
+      - ./database/seed_data/json:/seeddata
+      # - ./database/seed_data/sql:/seeddata
+    depends_on:
+      - database
+    links:
+      - database
+

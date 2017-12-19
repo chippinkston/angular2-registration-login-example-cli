@@ -23,12 +23,13 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.loadUserOrders();
-        this.widgets = this.widgetService.getWidgets();
+      this.loadUserOrders();
+//      this.widgets = this.widgetService.getWidgets();
+      this.widgetService.getWidgets().subscribe(widgets => this.widgets = widgets);
     }
 
     createOrder(): void {
-      this.currentOrder = {};
+      this.currentOrder = new Order();
       this.currentOrder.user = this.currentUser.id;
       this.currentOrder.widgets = [];
       console.log(this.currentOrder);
@@ -38,11 +39,12 @@ export class HomeComponent implements OnInit {
       if(this.currentOrder === undefined){
         this.createOrder();
       }
-      let newWidget: Widget = {};
+      this.userOrders.push(this.currentOrder);
+      let newWidget = new Widget;
         newWidget.id = 1;
         newWidget.name = 'Tmp';
         newWidget.price = 5.55;
-      let newOrderWidget: OrderWidget = {};
+      let newOrderWidget = new OrderWidget;
         newOrderWidget.widget = newWidget;
         newOrderWidget.quantity = 1;
       this.currentOrder.widgets.push(newOrderWidget);
@@ -52,6 +54,6 @@ export class HomeComponent implements OnInit {
 
 
     private loadUserOrders() {
-        this.userService.getUsers().subscribe(users => { this.users = users; });
+        //this.userService.getUsers().subscribe(users => { this.users = users; });
     }
 }

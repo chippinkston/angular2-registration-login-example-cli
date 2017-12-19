@@ -14,7 +14,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr *ngFor="let widget of widgets | async">
+				<tr *ngFor="let widget of widgets">
 					<td>{{widget.name}}</td>
 					<td>{{widget.price | currency}}</td>
 					<td><a (click)="addToOrder(widget.id)" routerLinkActive="active" class="btn btn-success btn-xs">add</a></td>
@@ -36,6 +36,7 @@
 				<tr *ngFor="let orderItem of currentOrder.widgets">
 					<td>{{orderItem.widget.name}}</td>
 					<td>{{orderItem.quantity}}</td>
+					<td><a (click)="removeOrderItem()" class="btn btn-danger btn-xs">remove</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -45,5 +46,17 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3>Orders</h3>
+		<table class="table table-bordered" *ngIf="currentOrder !== undefined">
+			<thead>
+			<tr>
+				<th>Widgets</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr *ngFor="let order of userOrders">
+				<td>{{order.widgets.length}}</td>
+			</tr>
+			</tbody>
+		</table>
 	</div>
 </div>

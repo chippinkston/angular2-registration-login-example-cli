@@ -14,8 +14,8 @@ tags:
     description: Interfaces for Users Orders
   - name: widgets
     description: Interfaces for Widgets
-host: api.localhost
-basePath: /v1
+host: localhost:4200
+basePath: /api/v1
 schemes:
   - https
   - http
@@ -24,7 +24,7 @@ paths:
     post:
       tags:
         - users
-      operationId: add-new-user
+      operationId: add-user
       summary: Add a new User
       parameters:
         - name: user
@@ -43,7 +43,7 @@ paths:
     get:
       tags:
         - users
-      operationId: list-all-users
+      operationId: get-users
       summary: List of all Users
       responses:
         '200':
@@ -53,7 +53,7 @@ paths:
     put:
       tags:
         - users
-      operationId: put-all-users
+      operationId: put-users
       summary: Modify all Users
       responses:
         '400':
@@ -61,7 +61,7 @@ paths:
     delete:
       tags:
         - users
-      operationId: delete-all-users
+      operationId: delete-users
       summary: Delete all Users
       responses:
         '400':
@@ -70,8 +70,8 @@ paths:
     get:
       tags:
         - users
-      operationId: get-specific-user
-      summary: Get a Specific user by ID
+      operationId: get-user
+      summary: Get a Specific User by ID
       parameters:
         - name: userID
           in: path
@@ -90,8 +90,8 @@ paths:
     put:
       tags:
         - users
-      operationId: put-specific-user
-      summary: Update a Specific user by ID
+      operationId: put-user
+      summary: Update a Specific User by ID
       parameters:
         - name: userID
           in: path
@@ -114,8 +114,8 @@ paths:
     delete:
       tags:
         - users
-      operationId: delete-specific-user
-      summary: Delete a Specific user by ID
+      operationId: delete-user
+      summary: Delete a Specific User by ID
       parameters:
         - name: userID
           in: path
@@ -125,6 +125,218 @@ paths:
       responses:
         '204':
           description: User Deleted.
+  /widgets:
+    post:
+      tags:
+        - widgets
+      operationId: add-widget
+      summary: Add a new widget
+      parameters:
+        - name: widget
+          in: body
+          required: true
+          description: New Widget Data
+          schema:
+            $ref: '#/definitions/widget'
+      responses:
+        '204':
+          description: Widget created.
+        '400':
+          description: Invalid data.
+        '500':
+          description: Server Error.
+    get:
+      tags:
+        - widgets
+      operationId: get-widgets
+      summary: List of all widgets
+      responses:
+        '200':
+          description: Returns a JSON Array of Widget Objects
+          schema:
+            $ref: "#/definitions/widgetList"
+    put:
+      tags:
+        - widgets
+      operationId: put-widgets
+      summary: Modify all Widget
+      responses:
+        '400':
+          description: Feature not enabled
+    delete:
+      tags:
+        - widgets
+      operationId: delete-widgets
+      summary: Delete all widgets
+      responses:
+        '400':
+          description: Feature not enabled
+  /widgets/{widgetID}:
+    get:
+      tags:
+        - widgets
+      operationId: get-widget
+      summary: Get a Specific Widget by ID
+      parameters:
+        - name: widgetID
+          in: path
+          description: Widget Specific ID
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Returns a Widget Object
+          schema:
+            $ref: "#/definitions/widget"
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Widget not found
+    put:
+      tags:
+        - widgets
+      operationId: put-widget
+      summary: Update a Specific Widget by ID
+      parameters:
+        - name: widgetID
+          in: path
+          description: Widget Specific ID
+          required: true
+          type: integer
+        - name: widget
+          in: body
+          required: true
+          description: New Widget Data
+          schema:
+            $ref: '#/definitions/widget'
+      responses:
+        '204':
+          description: Widget Modified.
+        '400':
+          description: Invalid data.
+        '500':
+          description: Server Error.
+    delete:
+      tags:
+        - widgets
+      operationId: delete-widget
+      summary: Delete a Specific Widget by ID
+      parameters:
+        - name: widgetID
+          in: path
+          description: Widget Specific ID
+          required: true
+          type: integer
+      responses:
+        '204':
+          description: Widget Deleted.
+  /orders:
+    post:
+      tags:
+        - orders
+      operationId: add-order
+      summary: Add a new order
+      parameters:
+        - name: order
+          in: body
+          required: true
+          description: New Order Data
+          schema:
+            $ref: '#/definitions/order'
+      responses:
+        '204':
+          description: Order created.
+        '400':
+          description: Invalid data.
+        '500':
+          description: Server Error.
+    get:
+      tags:
+        - orders
+      operationId: get-orders
+      summary: List of all orders
+      responses:
+        '200':
+          description: Returns a JSON Array of Order Objects
+          schema:
+            $ref: "#/definitions/orderList"
+    put:
+      tags:
+        - orders
+      operationId: put-orders
+      summary: Modify all Orders
+      responses:
+        '400':
+          description: Feature not enabled
+    delete:
+      tags:
+        - orders
+      operationId: delete-orders
+      summary: Delete all Orders
+      responses:
+        '400':
+          description: Feature not enabled
+  /orders/{orderID}:
+    get:
+      tags:
+        - orders
+      operationId: get-order
+      summary: Get a Specific Order by ID
+      parameters:
+        - name: widgetID
+          in: path
+          description: Order Specific ID
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Returns a Order Object
+          schema:
+            $ref: "#/definitions/widget"
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Order not found
+    put:
+      tags:
+        - orders
+      operationId: put-order
+      summary: Update a Specific Order by ID
+      parameters:
+        - name: orderID
+          in: path
+          description: Order Specific ID
+          required: true
+          type: integer
+        - name: order
+          in: body
+          required: true
+          description: New Order Data
+          schema:
+            $ref: '#/definitions/order'
+      responses:
+        '204':
+          description: Order Modified.
+        '400':
+          description: Invalid data.
+        '500':
+          description: Server Error.
+    delete:
+      tags:
+        - orders
+      operationId: delete-order
+      summary: Delete a Specific Order by ID
+      parameters:
+        - name: orderID
+          in: path
+          description: Order Specific ID
+          required: true
+          type: integer
+      responses:
+        '204':
+          description: Order Deleted.
+
+
 definitions:
   user:
     type: object
